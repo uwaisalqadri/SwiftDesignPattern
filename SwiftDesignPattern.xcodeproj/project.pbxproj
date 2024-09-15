@@ -15,6 +15,14 @@
 		86C310672C966661007F915C /* FactoryMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C310662C966661007F915C /* FactoryMethod.swift */; };
 		86C310692C96666D007F915C /* AbstractFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C310682C96666D007F915C /* AbstractFactory.swift */; };
 		86C3106B2C966677007F915C /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C3106A2C966677007F915C /* Builder.swift */; };
+		86C3106D2C9684FB007F915C /* Adapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C3106C2C9684FB007F915C /* Adapter.swift */; };
+		86C3106F2C968502007F915C /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C3106E2C968502007F915C /* Bridge.swift */; };
+		86C310722C968512007F915C /* Composite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C310712C968512007F915C /* Composite.swift */; };
+		86C310742C968519007F915C /* Decorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C310732C968519007F915C /* Decorator.swift */; };
+		86C310762C96854E007F915C /* Facade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C310752C96854E007F915C /* Facade.swift */; };
+		86C310782C968556007F915C /* Flyweight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C310772C968556007F915C /* Flyweight.swift */; };
+		86C3107A2C96856A007F915C /* Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C310792C96856A007F915C /* Proxy.swift */; };
+		86C3107C2C9686A3007F915C /* StructuralPatternTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C3107B2C9686A3007F915C /* StructuralPatternTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +46,14 @@
 		86C310662C966661007F915C /* FactoryMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryMethod.swift; sourceTree = "<group>"; };
 		86C310682C96666D007F915C /* AbstractFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractFactory.swift; sourceTree = "<group>"; };
 		86C3106A2C966677007F915C /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
+		86C3106C2C9684FB007F915C /* Adapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adapter.swift; sourceTree = "<group>"; };
+		86C3106E2C968502007F915C /* Bridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bridge.swift; sourceTree = "<group>"; };
+		86C310712C968512007F915C /* Composite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Composite.swift; sourceTree = "<group>"; };
+		86C310732C968519007F915C /* Decorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decorator.swift; sourceTree = "<group>"; };
+		86C310752C96854E007F915C /* Facade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Facade.swift; sourceTree = "<group>"; };
+		86C310772C968556007F915C /* Flyweight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flyweight.swift; sourceTree = "<group>"; };
+		86C310792C96856A007F915C /* Proxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proxy.swift; sourceTree = "<group>"; };
+		86C3107B2C9686A3007F915C /* StructuralPatternTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructuralPatternTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				86C310482C9665D8007F915C /* CreationalPatternTests.swift */,
+				86C3107B2C9686A3007F915C /* StructuralPatternTests.swift */,
 			);
 			path = SwiftDesignPatternTests;
 			sourceTree = "<group>";
@@ -126,6 +143,13 @@
 		86C310632C96663A007F915C /* Structural */ = {
 			isa = PBXGroup;
 			children = (
+				86C3106C2C9684FB007F915C /* Adapter.swift */,
+				86C3106E2C968502007F915C /* Bridge.swift */,
+				86C310712C968512007F915C /* Composite.swift */,
+				86C310732C968519007F915C /* Decorator.swift */,
+				86C310752C96854E007F915C /* Facade.swift */,
+				86C310772C968556007F915C /* Flyweight.swift */,
+				86C310792C96856A007F915C /* Proxy.swift */,
 			);
 			path = Structural;
 			sourceTree = "<group>";
@@ -231,8 +255,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				86C310692C96666D007F915C /* AbstractFactory.swift in Sources */,
+				86C310762C96854E007F915C /* Facade.swift in Sources */,
+				86C3106D2C9684FB007F915C /* Adapter.swift in Sources */,
+				86C3106F2C968502007F915C /* Bridge.swift in Sources */,
+				86C3107A2C96856A007F915C /* Proxy.swift in Sources */,
+				86C310782C968556007F915C /* Flyweight.swift in Sources */,
 				86C310672C966661007F915C /* FactoryMethod.swift in Sources */,
 				86C310382C9665D5007F915C /* MainApp.swift in Sources */,
+				86C310742C968519007F915C /* Decorator.swift in Sources */,
+				86C310722C968512007F915C /* Composite.swift in Sources */,
 				86C310652C966658007F915C /* Singleton.swift in Sources */,
 				86C3106B2C966677007F915C /* Builder.swift in Sources */,
 			);
@@ -243,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86C310492C9665D8007F915C /* CreationalPatternTests.swift in Sources */,
+				86C3107C2C9686A3007F915C /* StructuralPatternTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

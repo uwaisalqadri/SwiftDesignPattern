@@ -23,8 +23,8 @@ final class CreationalPatternTests: XCTestCase {
         let officeFurniture = furnitureClient.clientCode(factory: OfficeFurnitureFactory())
         let diningFurniture = furnitureClient.clientCode(factory: DiningFurnitureFactory())
         
-        XCTAssertTrue([officeFurniture.chairDesc, officeFurniture.closetDesc].joined().contains("Office"))
-        XCTAssertTrue([diningFurniture.chairDesc, diningFurniture.closetDesc].joined().contains("Dining"))
+        XCTAssertTrue([officeFurniture.chairDesc, officeFurniture.cutleryDesc].joined().contains("Office"))
+        XCTAssertTrue([diningFurniture.chairDesc, diningFurniture.cutleryDesc].joined().contains("Dining"))
     }
     
     func test_Singleton() {
@@ -52,6 +52,8 @@ final class CreationalPatternTests: XCTestCase {
         home.live()
         home.laugh()
         
-        XCTAssertTrue(home.builder.indoors.contains(where: { $0 is Sink }))
+        XCTAssertTrue(
+            home.builder.indoors.contains(where: { $0 is Sink })
+        )
     }
 }

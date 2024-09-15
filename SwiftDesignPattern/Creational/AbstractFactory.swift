@@ -7,30 +7,30 @@
 
 import Foundation
 
-protocol Closet {
+protocol Cutlery {
     var material: String { get }
     func description() -> String
 }
 
-class OfficeCloset: Closet {
+class OfficeCutlery: Cutlery {
     var material: String = "Metal"
     
     func description() -> String {
-        return "This is an Office Closet made of \(material)."
+        return "This is an Office Cutlery made of \(material)."
     }
 }
 
-class DiningCloset: Closet {
+class DiningCutlery: Cutlery {
     var material: String = "Wood"
     
     func description() -> String {
-        return "This is a Dining Closet made of \(material)."
+        return "This is a Dining Cutlery made of \(material)."
     }
 }
 
 protocol FurnitureFactory {
     func createChair() -> Chair
-    func createCloset() -> Closet
+    func createCutlery() -> Cutlery
 }
 
 class OfficeFurnitureFactory: FurnitureFactory {
@@ -38,8 +38,8 @@ class OfficeFurnitureFactory: FurnitureFactory {
         return OfficeChair()
     }
     
-    func createCloset() -> Closet {
-        return OfficeCloset()
+    func createCutlery() -> Cutlery {
+        return OfficeCutlery()
     }
 }
 
@@ -48,16 +48,16 @@ class DiningFurnitureFactory: FurnitureFactory {
         return DiningChair()
     }
     
-    func createCloset() -> Closet {
-        return DiningCloset()
+    func createCutlery() -> Cutlery {
+        return DiningCutlery()
     }
 }
 
 struct FurnitureClient {
-    func clientCode(factory: FurnitureFactory) -> (chairDesc: String, closetDesc: String) {
+    func clientCode(factory: FurnitureFactory) -> (chairDesc: String, cutleryDesc: String) {
         let chair = factory.createChair()
-        let closet = factory.createCloset()
+        let cutlery = factory.createCutlery()
         
-        return (chair.description(), closet.description())
+        return (chair.description(), cutlery.description())
     }
 }
