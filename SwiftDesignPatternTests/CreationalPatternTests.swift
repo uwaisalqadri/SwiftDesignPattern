@@ -13,8 +13,12 @@ final class CreationalPatternTests: XCTestCase {
     func test_FactoryMethod() {
         let chairFactory = ChairFactory()
         
-        if let officeChair = chairFactory.createChair(type: .office) {
-            XCTAssertTrue(officeChair is OfficeChair)
+        if let chair = chairFactory.createChair(type: .office) {
+            XCTAssertTrue(chair is OfficeChair)
+        }
+
+        if let chair = chairFactory.createChair(type: .rocking) {
+            XCTAssertTrue(chair is RockingChair)
         }
     }
     
