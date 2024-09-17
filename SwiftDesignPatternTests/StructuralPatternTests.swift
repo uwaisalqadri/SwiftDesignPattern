@@ -65,18 +65,50 @@ final class StructuralPatternTests: XCTestCase {
     }
     
     func test_Decorator() {
-        XCTAssertTrue(false)
+        let cheetos = Cheetos()
+        let cheetosSpicy = CheetosSpicyDecorator(decoratedSnack: cheetos)
+        let cheetosCheesy = CheetosCheesyDecorator(decoratedSnack: cheetos)
+        
+        XCTAssertEqual(cheetosSpicy.description(), "Cheetos Snack with Spicy")
+        XCTAssertTrue(cheetosSpicy.cost() > cheetos.cost() && cheetosCheesy.cost() > cheetos.cost())
     }
     
     func test_Facade() {
-        XCTAssertTrue(false)
+        let feedingSystem = FeedingSystem()
+        let playingSystem = PlayingSystem()
+        let groomingSystem = GroomingSystem()
+        
+        let cuteAnimalCareFacade = CuteAnimalClassFacade(
+            feedingSystem: feedingSystem,
+            playingSystem: playingSystem,
+            groomingSystem: groomingSystem
+        )
+        
+        cuteAnimalCareFacade.careForAnimal()
+        
+        XCTAssertTrue(cuteAnimalCareFacade.isHappy)
     }
     
     func test_Flyweight() {
-        XCTAssertTrue(false)
+        let factory = ClothingFactory()
+        
+        let cottonRedType = factory.getClothingType(fabric: .cotton, color: .red)
+        let smallShirt = Clothing(type: cottonRedType, size: "S")
+        let mediumShirt = Clothing(type: cottonRedType, size: "M")
+        
+        let silkBlueType = factory.getClothingType(fabric: .silk, color: .blue)
+        let largeDress = Clothing(type: silkBlueType, size: "L")
+        
+        XCTAssertEqual(smallShirt.describe(), "Cotton, Red, size S")
+        XCTAssertEqual(mediumShirt.describe(), "Cotton, Red, size M")
+        XCTAssertEqual(largeDress.describe(), "Silk, Blue, size L")
     }
     
     func test_Proxy() {
-        XCTAssertTrue(false)
+        let wifiAvailableProxy = ConnectionProxy(isWifiAvailable: true)
+        XCTAssertEqual(wifiAvailableProxy.connection(), "Connected via Wifi")
+        
+        let wifiunavailableProxy = ConnectionProxy(isWifiAvailable: false)
+        XCTAssertEqual(wifiunavailableProxy.connection(), "Connected via Cellular")
     }
 }
