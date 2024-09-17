@@ -68,8 +68,10 @@ final class StructuralPatternTests: XCTestCase {
         let cheetos = Cheetos()
         let cheetosSpicy = CheetosSpicyDecorator(decoratedSnack: cheetos)
         let cheetosCheesy = CheetosCheesyDecorator(decoratedSnack: cheetos)
+        let cheetosSpicyCheesy = CheetosCheesyDecorator(decoratedSnack: cheetosSpicy)
         
         XCTAssertEqual(cheetosSpicy.description(), "Cheetos Snack with Spicy")
+        XCTAssertTrue(cheetosSpicyCheesy.cost() > cheetos.cost())
         XCTAssertTrue(cheetosSpicy.cost() > cheetos.cost() && cheetosCheesy.cost() > cheetos.cost())
     }
     
