@@ -44,7 +44,24 @@ final class StructuralPatternTests: XCTestCase {
     }
     
     func test_Composite() {
-        XCTAssertTrue(false)
+        let soldier1 = Soldier(name: "John")
+        let soldier2 = Soldier(name: "Doe")
+        let soldier3 = Soldier(name: "Smith")
+        let soldier4 = Soldier(name: "James")
+        
+        let squad1 = Squad()
+        squad1.add(unit: soldier1)
+        squad1.add(unit: soldier2)
+        squad1.add(unit: soldier3)
+        
+        let squad2 = Squad()
+        squad1.add(unit: soldier4)
+        
+        let platoon1 = Platoon()
+        platoon1.add(unit: squad1)
+        platoon1.add(unit: squad2)
+        
+        XCTAssertTrue(platoon1.report().contains(squad1.report() + squad2.report()))
     }
     
     func test_Decorator() {
