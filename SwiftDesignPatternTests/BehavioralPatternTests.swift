@@ -51,7 +51,19 @@ final class BehavioralPatternTests: XCTestCase {
     }
 
     func test_Iterator() {
-        XCTAssertTrue(false)
+        let friendsList = FriendsList()
+        
+        friendsList.addFriend(Friend(name: "John Doe", profileId: "john_doe"))
+        friendsList.addFriend(Friend(name: "Jane Smith", profileId: "jane_smith"))
+        friendsList.addFriend(Friend(name: "Mike Johnson", profileId: "mike_johnson"))
+
+        let iterator = friendsList.createIterator()
+        
+        while iterator.hasNext() {
+            if let friend = iterator.next(), friend.profileId == "mike_johnson" {
+                XCTAssertTrue(true)
+            }
+        }
     }
 
     func test_Mediator() {
@@ -77,7 +89,26 @@ final class BehavioralPatternTests: XCTestCase {
     }
 
     func test_State() {
-        XCTAssertTrue(false)
+        let lock = LockContext()
+        
+        lock.lock()
+        XCTAssertNotNil(lock.currentState)
+        XCTAssertTrue(lock.currentState is LockedState)
+        
+        lock.unlock()
+        XCTAssertTrue(lock.currentState is UnlockedState)
+        
+        lock.lock()
+        XCTAssertTrue(lock.currentState is LockedState)
+        
+        lock.unlock()
+        XCTAssertTrue(lock.currentState is UnlockedState)
+        
+        lock.lock()
+        XCTAssertTrue(lock.currentState is LockedState)
+        
+        lock.breakLock()
+        XCTAssertTrue(lock.currentState is BrokenState)
     }
 
     func test_Strategy() {
