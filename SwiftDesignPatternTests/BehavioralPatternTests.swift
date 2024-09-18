@@ -34,7 +34,20 @@ final class BehavioralPatternTests: XCTestCase {
     }
 
     func test_Command() {
-        XCTAssertTrue(false)
+        let chef = Chef()
+        let restaurant = Restaurant()
+        
+        let burgerOrder = BurderOrder(chef: chef)
+        let pastaOrder = PastaOrder(chef: chef)
+        let pizzaOrder = PizzaOrder(chef: chef)
+        
+        restaurant.takeOrder(burgerOrder)
+        restaurant.takeOrder(pastaOrder)
+        restaurant.takeOrder(pizzaOrder)
+        
+        restaurant.serveAllOrders()
+        
+        XCTAssertEqual(restaurant.orderStatuses, [burgerOrder.execute(), pastaOrder.execute(), pizzaOrder.execute()])
     }
 
     func test_Iterator() {
@@ -50,7 +63,17 @@ final class BehavioralPatternTests: XCTestCase {
     }
 
     func test_Observer() {
-        XCTAssertTrue(false)
+        let publisher = NewspaperPublisher()
+        let regularSubscriber = RegularSubscriber()
+        let premiumSubcriber = PremiumSubscriber()
+        
+        regularSubscriber.subscribe(to: publisher)
+        premiumSubcriber.subscribe(to: publisher)
+        
+        publisher.releaseNewEdition("BREAKING NEWS")
+        
+        XCTAssertTrue(regularSubscriber.isReceivedNewEdition)
+        XCTAssertTrue(premiumSubcriber.isReceivedNewEdition)
     }
 
     func test_State() {
@@ -68,10 +91,25 @@ final class BehavioralPatternTests: XCTestCase {
     }
 
     func test_TemplateMethod() {
-        XCTAssertTrue(false)
+        let bedroom = Bedroom()
+        let kitchen = Kitchen()
+        
+        bedroom.cleanRoom()
+        kitchen.cleanRoom()
+        
+        XCTAssertTrue(bedroom.cleaningSteps.contains(.tidyUp))
+        XCTAssertTrue(kitchen.cleaningSteps.contains(.cleanSpecificArea))
     }
 
     func test_Visitor() {
-        XCTAssertTrue(false)
+        let agent = SpecificInsuranceAgent()
+        
+        let residentialBuilding = ResidentialBuilding()
+        let bank = Bank()
+        let coffeeShop = CoffeeShop()
+        
+        XCTAssertEqual(residentialBuilding.accept(agent), "Selling medical insurance to a residential building.")
+        XCTAssertEqual(bank.accept(agent), "Selling theft insurance to a bank.")
+        XCTAssertEqual(coffeeShop.accept(agent), "Selling fire and flood insurance to a coffee shop.")
     }
 }

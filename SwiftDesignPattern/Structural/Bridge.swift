@@ -64,6 +64,11 @@ class LCDTV: TV {
         currentChannel = channel
         print("LCD TV changed to channel \(channel).")
     }
+    
+    func mute() {
+        isMuted.toggle()
+        print("LCD TV is now OFF.")
+    }
 }
 
 class RegularRemote: RemoteControl {
