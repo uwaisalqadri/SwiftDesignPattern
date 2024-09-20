@@ -71,7 +71,21 @@ final class BehavioralPatternTests: XCTestCase {
     }
 
     func test_Memento() {
-        XCTAssertTrue(false)
+        let clipboardManager = ClipboardManager()
+        
+        clipboardManager.copy("Hello, world!")
+        clipboardManager.copy("Second copy")
+        clipboardManager.copy("Third copy")
+        
+        clipboardManager.undo()
+        XCTAssertEqual(clipboardManager.paste(), "Second copy")
+        
+        clipboardManager.redo()
+        XCTAssertEqual(clipboardManager.paste(), "Third copy")
+        
+        clipboardManager.undo()
+        clipboardManager.undo()
+        XCTAssertEqual(clipboardManager.paste(), "Hello, world!")
     }
 
     func test_Observer() {
