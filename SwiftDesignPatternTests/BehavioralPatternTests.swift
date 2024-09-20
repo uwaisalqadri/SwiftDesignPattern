@@ -67,7 +67,21 @@ final class BehavioralPatternTests: XCTestCase {
     }
 
     func test_Mediator() {
-        XCTAssertTrue(false)
+        let controlTower = ConcreteAirportControlTower()
+        
+        let planeA = Plane(identifier: "Plane A")
+        let planeB = Plane(identifier: "Plane B")
+        let planeC = Plane(identifier: "Plane C")
+        
+        controlTower.registerPlane(planeA)
+        controlTower.registerPlane(planeB)
+        controlTower.registerPlane(planeC)
+        
+        planeA.requestLanding()
+        planeB.requestLanding()
+        planeC.requestTakeOff()
+        
+        XCTAssertEqual(controlTower.planes, [planeA, planeB, planeC])
     }
 
     func test_Memento() {
